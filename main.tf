@@ -1,11 +1,5 @@
 provider "aws" {
     region = "us-east-1"
-    version = "~> 4.0"
-
-    default_tags {
-      Environmente  =       "dev"
-      Service       =       "ec2_instance"
-    }
 }
 
 locals{
