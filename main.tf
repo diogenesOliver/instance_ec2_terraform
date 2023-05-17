@@ -3,16 +3,13 @@ provider "aws" {
     version = "~> 4.0"
 
     default_tags {
-      Name          =       local.name
-      Environmente  =       local.environmente
-      Service       =       locals.service
+      Environmente  =       "dev"
+      Service       =       "ec2_instance"
     }
 }
 
 locals{
     name           =    "ec2_instance_iac"
-    environmente   =    "dev"
-    service        =    "ec2_instance"
 }
 
 module "ec2_instance" {
