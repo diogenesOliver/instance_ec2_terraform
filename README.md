@@ -1,4 +1,5 @@
-## Terraform (AWS) - EC2 instance
+<h3>Terraform (AWS) - EC2 instance </h3><img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" />
+          
 
 <br>
 
@@ -6,14 +7,36 @@
 
 <p>The purpose of this repository is to put into practice my knowledge in AWS and Terraform, creating a simple EC2 instance</p>
 
-## CI/CD automation - WIP
+<br>
+
+## Commands
+
+<strong>
+First command to initialize the instance
+</strong>
+
+
+```
+    terraform init
+```
 
 <br>
 
-<p>The project also has the GitHub CI/CD feature, that is, at each commit the CI/CD is activated to perform automatic tests on that commit</p>
-
-<p>Currently CI/CD is like WIP, the terraform command that CI/CD runs is:</p>
+<strong>
+    To view your instance's schedule
+</strong>
 
 ```
-    terraform plan -input=false
+    terraform plan
 ```
+
+<br>
+
+<strong>
+To upload your ec2 instance to AWS
+</strong>
+
+```
+    terrform apply
+```
+- Use argument <strong>-auto-approve</strong> to automatically approve 
