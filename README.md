@@ -1,42 +1,44 @@
 <h3>Terraform (AWS) - EC2 instance </h3><img height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" />
           
-
 <br>
 
-<p>In this repository an EC2 instance is created in aws using current knowledge of IAC, using the Terraform markup language</p>
+<p>
+Colocando em prática alguns conhecimentos de IaC (Infrastructure as Code) utilizando a linguagem Terraform para subir uma instância EC2 na AWS e criar um monitoramento no CloudWatch
+</p>
 
-<p>The purpose of this repository is to put into practice my knowledge in AWS and Terraform, creating a simple EC2 instance</p>
+<p>Atualmento o monitoramento da instância EC2 é apenas de utilização de CPU, em breve será criado outros tipos de monitoramento</p>
 
-<br>
+### Instância EC2
 
-## Commands
+```terraform
+module "ec2_instance" {
+  source = "terraform-aws-modules/ec2-instance/aws"
 
-<strong>
-First command to initialize the instance
-</strong>
+  name = local.name
 
+  instance_type          = "t2.micro"
+  key_name               = aws_key_pair.key_pair_ec2_instance.key_name
+  vpc_security_group_ids = [aws_security_group.sg_to_ec2_instance.id]
+  subnet_id              = local.networks[local.environmente].subnet
 
-```
-    terraform init
-```
-
-<br>
-
-<strong>
-    To view your instance's schedule
-</strong>
-
-```
-    terraform plan
+  tags = {
+    Name = "${local.name}.ec2.diogenes@gmail.com"
+  }
+}
 ```
 
-<br>
+### Monitoramento no CW
 
-<strong>
-To upload your ec2 instance to AWS
-</strong>
-
+```terraform
+resource "aws_cloudwatch_metric_alarm" "CPUUtilization-ec2" {
+  alarm_name          = "[EC2 Instance] - Monitoring CPU Utilization"
+  comparison_operator = "GreaterThanThreshold"
+  threshold           = 80
+  evaluation_periods  = 1
+  namespace           = "AWS/EC2"
+  period              = 60
+  statistic           = "Average"
+  metric_name         = "CPUUtilization"
+  alarm_description   = "This monitoring should send a alarm when CPUUtilization of this EC2 instance > 80%"
+}
 ```
-    terrform apply
-```
-- Use argument <strong>-auto-approve</strong> to automatically approve 
