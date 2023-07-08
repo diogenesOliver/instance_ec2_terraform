@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: "Test"
-    runs-on: [self-hosted]
+    runs-on: windows-latest
     steps:
       - name: "Setup - Checkout"
         uses: actions/checkout@v2.1.0
