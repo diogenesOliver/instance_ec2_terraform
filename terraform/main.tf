@@ -25,7 +25,7 @@ locals {
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = local.name
+  name = "[EC2 Instance] - EC2 instaince from test"
 
   instance_type          = "t2.micro"
   key_name               = aws_key_pair.key_pair_ec2_instance.key_name
