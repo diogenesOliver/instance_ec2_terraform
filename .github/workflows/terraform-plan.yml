@@ -1,6 +1,9 @@
-name: "Test"
+name: "Run terraform plain"
 
-on: main
+on:
+  push:
+    branches:
+      - 'main'
 
 jobs:
   test:
