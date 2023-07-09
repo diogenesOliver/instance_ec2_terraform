@@ -9,6 +9,10 @@ jobs:
   test:
     name: "Test"
     runs-on: windows-latest
+
+    permissions:
+      id-token: write
+
     steps:
       - name: "Setup - Checkout"
         uses: actions/checkout@v2.1.0
