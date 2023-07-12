@@ -8,7 +8,7 @@ on:
 jobs:
   test:
     name: "Test"
-    runs-on: windows-latest
+    runs-on: [ubuntu-latest, windows-latest, macOS-latest]
 
     permissions:
       id-token: write
