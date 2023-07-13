@@ -29,6 +29,11 @@ jobs:
           cd terraform/
           terraform init -input=false
 
+      - name: "Run - Terraform destroy"
+        run: |
+          cd terraform/
+          terraform destroy -input=false
+
       - name: "Run - Terraform Apply"
         run: |
           cd terraform/
