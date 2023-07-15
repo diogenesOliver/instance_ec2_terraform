@@ -10,7 +10,7 @@ provider "aws" {
 }
 
 locals {
-  name         = "ec2_instance_iac"
+  name         = "instance_ec2_terraform"
   environment = "dev"
   networks = {
     dev = {
@@ -30,6 +30,6 @@ module "ec2_instance" {
   subnet_id              = local.networks[local.environment].subnet
 
   tags = {
-    Name = "${local.name}.ec2.diogenes@gmail.com"
+    Name = "${local.name}"
   }
 }
