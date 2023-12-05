@@ -6,7 +6,7 @@
 Colocando em prática alguns conhecimentos de IaC (Infrastructure as Code) utilizando a linguagem Terraform para subir uma instância EC2 na AWS e criar um monitoramento no CloudWatch
 </p>
 
-<p>Atualmento o monitoramento da instância EC2 é apenas de utilização de CPU, em breve será criado outros tipos de monitoramento</p>
+<p>Atualmente o monitoramento da instância EC2 é apenas de utilização de CPU, em breve será criado outros tipos de monitoramento</p>
 
 ### Instância EC2
 
